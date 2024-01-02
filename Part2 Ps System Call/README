@@ -1,0 +1,13 @@
+Gives information about the all the process executed while running a Ps.c file. Information contains Name, PID, PPID, Size, State, Channel, Killed or not.
+
+STEPS FOLLOWED 
+
+1. Added "#define SYS_getprocinfo  22" in syscall.h
+2. Added "[SYS_getprocinfo]    sys_getprocinfo" in syscalls array in syscall.h
+3. Added "extern int sys_getprocinfo(void)" in syscall.h as prototype
+4. ***Defining "struct uproc" in stat.h ***
+5. Implementing system call function sys_getprocinfo in sysproc.c that will take the pid and uproc from ps.
+6. Added "SYSCALL(getprocinfo)" in usys.s.
+7. Declaring the "int getprocinfo(int,struct uproc*);" in defs.h and user.h files.
+8. Implemented the full function of getprocinfo in proc.c and also including stat.h in it.
+9. For making user call "ps" , now we will add ps.c file and also include that command in "Makefile" under UPROGS and EXTRAS

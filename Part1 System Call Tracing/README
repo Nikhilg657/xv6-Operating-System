@@ -1,0 +1,6 @@
+Gives us the information about all the system call called during execution of a particular system call.
+
+Step followed:
+
+1. create an array of "sys_call_names" in syscall.c
+2. than put a cprintf statement in syscall function to print the syscall names corresponding to the syscall number

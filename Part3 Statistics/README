@@ -1,0 +1,15 @@
+Gives us the information about a process which is executed or a system call called. Information contains: PID, Ready time, Running time, Sleeping Time. 
+
+Steps Followed:
+
+1. Write "#define SYS_wait2 22" in syscall.h.
+2. Write "[SYS_wait2] sys_wait2" in syscall.c.
+3. Write "extern int sys_wait2(void);" in syscall.c.
+4. Modifying "struct proc" in proc.h 
+5. Setting ctime of a processes in proc.c
+6. Implementing system call function in sysproc.c that will take the retime , rutime and stime from sys_wait2 .And then add "SYSCALL(wait2)" in usys.S.
+7. Adding "void increasetimer();" function in proc.h.
+8. Defining "void increasetimer();" in proc.c.
+9. Calling the "increasetimer()" in trap.c.
+10. Adding "int wait2(int *,int *,int *);" in user.h and defs.h.
+11. Modifying "int main()" of sh.c to call wait2 and print the details about the process executed.
